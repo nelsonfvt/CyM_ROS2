@@ -1,0 +1,21 @@
+[0.739s] Invoking command in '/home/nelsonvt/workspace/ROS2_sim/src/simple_robot': PYTHONPATH=/home/nelsonvt/workspace/ROS2_sim/build/simple_robot/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/nelsonvt/workspace/ROS2_sim/install/simple_robot/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/simple_robot build --build-base /home/nelsonvt/workspace/ROS2_sim/build/simple_robot/build install --record /home/nelsonvt/workspace/ROS2_sim/build/simple_robot/install.log --single-version-externally-managed install_data
+[1.035s] running egg_info
+[1.035s] writing ../../build/simple_robot/simple_robot.egg-info/PKG-INFO
+[1.035s] writing dependency_links to ../../build/simple_robot/simple_robot.egg-info/dependency_links.txt
+[1.036s] writing entry points to ../../build/simple_robot/simple_robot.egg-info/entry_points.txt
+[1.036s] writing requirements to ../../build/simple_robot/simple_robot.egg-info/requires.txt
+[1.036s] writing top-level names to ../../build/simple_robot/simple_robot.egg-info/top_level.txt
+[1.038s] reading manifest file '../../build/simple_robot/simple_robot.egg-info/SOURCES.txt'
+[1.039s] writing manifest file '../../build/simple_robot/simple_robot.egg-info/SOURCES.txt'
+[1.039s] running build
+[1.039s] running build_py
+[1.039s] running install
+[1.040s] running install_lib
+[1.041s] running install_data
+[1.041s] copying urdf/simple_robot.urdf -> /home/nelsonvt/workspace/ROS2_sim/install/simple_robot/share/simple_robot/urdf
+[1.041s] running install_egg_info
+[1.043s] removing '/home/nelsonvt/workspace/ROS2_sim/install/simple_robot/lib/python3.10/site-packages/simple_robot-0.0.0-py3.10.egg-info' (and everything under it)
+[1.043s] Copying ../../build/simple_robot/simple_robot.egg-info to /home/nelsonvt/workspace/ROS2_sim/install/simple_robot/lib/python3.10/site-packages/simple_robot-0.0.0-py3.10.egg-info
+[1.045s] running install_scripts
+[1.066s] writing list of installed files to '/home/nelsonvt/workspace/ROS2_sim/build/simple_robot/install.log'
+[1.093s] Invoked command in '/home/nelsonvt/workspace/ROS2_sim/src/simple_robot' returned '0': PYTHONPATH=/home/nelsonvt/workspace/ROS2_sim/build/simple_robot/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/nelsonvt/workspace/ROS2_sim/install/simple_robot/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/simple_robot build --build-base /home/nelsonvt/workspace/ROS2_sim/build/simple_robot/build install --record /home/nelsonvt/workspace/ROS2_sim/build/simple_robot/install.log --single-version-externally-managed install_data

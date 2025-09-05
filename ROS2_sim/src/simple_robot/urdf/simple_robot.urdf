@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<robot name="simple_robot">
+	
+	<material name="blue">
+    <color rgba="0 0 0.8 1"/>
+  </material>
+
+  <material name="white">
+    <color rgba="1 1 1 1"/>
+  </material>
+	
+  <link name="base_link">
+    <visual>
+      <geometry>
+		<box size="0.1 0.1 0.05"/>
+      </geometry>
+      <material name="white"/>
+      <origin xyz="0 0 0.025"/>
+    </visual>
+  </link>
+
+  <link name="plato_giro">
+    <visual>
+      <geometry>
+        <cylinder length="0.05" radius="0.01"/>
+      </geometry>
+      <material name="blue"/>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </visual>
+  </link>
+
+  <joint name="J1" type="continuous">
+    <parent link="base_link"/>
+    <child link="plato_giro"/>
+    <origin xyz="0 0 0.075"/>
+     <axis xyz="0 0 0.1" />
+  </joint>
+  
+ 
+  <link name="link2_1">
+	  <visual>
+		  <geometry>
+			  <cylinder length="0.1" radius="0.01"/>
+		  </geometry>
+		  <material name="white"/>
+		  <origin rpy="0 0 0" xyz="0 0 0"/>
+	  </visual>
+  </link>
+  
+  <joint name="J2" type="continuous">
+	<parent link="plato_giro"/>
+    <child link="link2_1"/>
+    <origin rpy="1.570796 0 0" xyz="0 0 0.035"/>
+    <axis xyz="0 0 1"/>
+  </joint>
+
+
+</robot>
