@@ -14,7 +14,9 @@ def generate_launch_description():
         urdf_file_name)
     with open(urdf, 'r') as infp:
         robot_desc = infp.read()
-
+	
+    my_package_dir = get_package_share_directory('simple_robot')
+    rviz_config_file = os.path.join(my_package_dir, 'urdf', 'rviz.rviz')
 
     robot_state_publisher_node = launch_ros.actions.Node(
         package='robot_state_publisher',
@@ -41,6 +43,7 @@ def generate_launch_description():
         executable='rviz2',
         name='rviz2',
         output='screen',
+        arguments='-d rviz_config_file'
     )
 
     return launch.LaunchDescription([
