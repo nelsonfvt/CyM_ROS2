@@ -6,11 +6,7 @@ Panels:
       Expanded:
         - /Global Options1
         - /Status1
-        - /Axes1
-        - /TF1
-        - /TF1/Frames1
         - /RobotModel1
-        - /RobotModel1/Description Topic1
       Splitter Ratio: 0.5
     Tree Height: 549
   - Class: rviz_common/Selection
@@ -54,33 +50,10 @@ Visualization Manager:
       Value: true
     - Class: rviz_default_plugins/Axes
       Enabled: true
-      Length: 0.0010000000474974513
+      Length: 1
       Name: Axes
-      Radius: 9.999999747378752e-05
+      Radius: 0.10000000149011612
       Reference Frame: <Fixed Frame>
-      Value: true
-    - Class: rviz_default_plugins/TF
-      Enabled: true
-      Frame Timeout: 15
-      Frames:
-        All Enabled: true
-        base_link:
-          Value: true
-        link2_1:
-          Value: true
-        plato_giro:
-          Value: true
-      Marker Scale: 1
-      Name: TF
-      Show Arrows: true
-      Show Axes: true
-      Show Names: false
-      Tree:
-        base_link:
-          plato_giro:
-            link2_1:
-              {}
-      Update Interval: 0
       Value: true
     - Alpha: 1
       Class: rviz_default_plugins/RobotModel
@@ -106,6 +79,11 @@ Visualization Manager:
           Show Trail: false
           Value: true
         link2_1:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        link2_2:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -169,46 +147,26 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz_default_plugins/Orbit
-      Distance: 0.5497587323188782
+      Distance: 9.749785423278809
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 0.023395191878080368
-        Y: -0.03253998979926109
-        Z: 0.04552453011274338
+        X: 0
+        Y: 0
+        Z: 0
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.46539825201034546
+      Pitch: 0.785398006439209
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 1.230393886566162
-    Saved:
-      - Class: rviz_default_plugins/Orbit
-        Distance: 4.135248184204102
-        Enable Stereo Rendering:
-          Stereo Eye Separation: 0.05999999865889549
-          Stereo Focal Distance: 1
-          Swap Stereo Eyes: false
-          Value: false
-        Focal Point:
-          X: 0
-          Y: 0
-          Z: 0
-        Focal Shape Fixed Size: true
-        Focal Shape Size: 0.05000000074505806
-        Invert Z Axis: false
-        Name: Orbit
-        Near Clip Distance: 0.009999999776482582
-        Pitch: 0.41039830446243286
-        Target Frame: <Fixed Frame>
-        Value: Orbit (rviz)
-        Yaw: 2.105395555496216
+      Yaw: 0.785398006439209
+    Saved: ~
 Window Geometry:
   Displays:
     collapsed: false
@@ -225,5 +183,5 @@ Window Geometry:
   Views:
     collapsed: false
   Width: 1200
-  X: 85
-  Y: 448
+  X: 60
+  Y: 416
