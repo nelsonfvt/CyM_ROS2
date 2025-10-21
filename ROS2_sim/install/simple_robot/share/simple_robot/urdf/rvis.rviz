@@ -6,7 +6,7 @@ Panels:
       Expanded:
         - /Global Options1
         - /Status1
-        - /RobotModel1
+        - /RobotModel1/Links1
       Splitter Ratio: 0.5
     Tree Height: 549
   - Class: rviz_common/Selection
@@ -78,6 +78,11 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
+        link1_2:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
         link2_1:
           Alpha: 1
           Show Axes: false
@@ -88,7 +93,7 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
-        plato_giro:
+        link3_1:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -101,6 +106,35 @@ Visualization Manager:
       Update Interval: 0
       Value: true
       Visual Enabled: true
+    - Class: rviz_default_plugins/TF
+      Enabled: true
+      Frame Timeout: 15
+      Frames:
+        All Enabled: true
+        base_link:
+          Value: true
+        link1_2:
+          Value: true
+        link2_1:
+          Value: true
+        link2_2:
+          Value: true
+        link3_1:
+          Value: true
+      Marker Scale: 1
+      Name: TF
+      Show Arrows: true
+      Show Axes: true
+      Show Names: true
+      Tree:
+        base_link:
+          link1_2:
+            link2_1:
+              link2_2:
+                link3_1:
+                  {}
+      Update Interval: 0
+      Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
@@ -162,10 +196,10 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.785398006439209
+      Pitch: 0.42539864778518677
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 0.785398006439209
+      Yaw: 1.095397710800171
     Saved: ~
 Window Geometry:
   Displays:
