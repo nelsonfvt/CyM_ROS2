@@ -6,7 +6,8 @@ Panels:
       Expanded:
         - /Global Options1
         - /Status1
-        - /RobotModel1/Links1
+        - /Axes1
+        - /TF1
       Splitter Ratio: 0.5
     Tree Height: 549
   - Class: rviz_common/Selection
@@ -53,7 +54,7 @@ Visualization Manager:
       Length: 1
       Name: Axes
       Radius: 0.10000000149011612
-      Reference Frame: <Fixed Frame>
+      Reference Frame: link1_2
       Value: true
     - Alpha: 1
       Class: rviz_default_plugins/RobotModel
@@ -98,6 +99,11 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
+        link3_2:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
       Mass Properties:
         Inertia: false
         Mass: false
@@ -121,6 +127,8 @@ Visualization Manager:
           Value: true
         link3_1:
           Value: true
+        link3_2:
+          Value: true
       Marker Scale: 1
       Name: TF
       Show Arrows: true
@@ -132,7 +140,8 @@ Visualization Manager:
             link2_1:
               link2_2:
                 link3_1:
-                  {}
+                  link3_2:
+                    {}
       Update Interval: 0
       Value: true
   Enabled: true
@@ -181,7 +190,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz_default_plugins/Orbit
-      Distance: 9.749785423278809
+      Distance: 15.079659461975098
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -196,10 +205,10 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.42539864778518677
+      Pitch: 0.4903985857963562
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 1.095397710800171
+      Yaw: 4.728565216064453
     Saved: ~
 Window Geometry:
   Displays:
