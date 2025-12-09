@@ -23,7 +23,7 @@ class AntropControl(Node):
         self.J3 = 0.0
 
         self.base_trans = TransformStamped()
-        self.base_trans.header.frame_id = 'world'
+        self.base_trans.header.frame_id = 'map'
         self.base_trans.child_frame_id = 'base_link'
         self.joint_state = JointState()
 

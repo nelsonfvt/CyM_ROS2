@@ -15,6 +15,15 @@ def generate_launch_description():
     with open(urdf, 'r') as infp:
         robot_desc = infp.read()
 
+    static_transform_publiser_node = Node(
+        package='tf2_ros',
+        executable='static_transform_publisher',
+        arguments=[
+                '--x', '0', '--y', '0', '--z', '0',
+                '--yaw', '0', '--pitch', '0', '--roll',
+                '0', '--frame-id', 'world', '--child-frame-id', 'base_link']
+        )
+
 
     robot_state_publisher_node = Node(
         package='robot_state_publisher',
@@ -38,6 +47,7 @@ def generate_launch_description():
         launch.actions.DeclareLaunchArgument(name='gui', default_value='True',
                                              description='Flag to enable joint_state_publisher_gui'),
         
+        static_transform_publiser_node,
         robot_state_publisher_node,
         rviz2_node,
 
