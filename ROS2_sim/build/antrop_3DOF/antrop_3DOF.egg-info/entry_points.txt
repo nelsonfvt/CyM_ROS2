@@ -1,0 +1,2 @@
+[console_scripts]
+antrop_control = antrop_3DOF.antrop_control:main

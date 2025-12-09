@@ -1,0 +1,9 @@
+Metadata-Version: 2.1
+Name: antrop-3DOF
+Version: 0.0.0
+Summary: control antropomorfico 3DOF
+Maintainer: nelsonvt
+Maintainer-email: nelsonfvt@gmail.com
+License: Apache-2.0
+Provides-Extra: test
+License-File: LICENSE
