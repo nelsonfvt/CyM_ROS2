@@ -6,10 +6,10 @@ El robot tiene movimiento automatico sin intervencion del usuario
 ### Ejecución:
 
 1. Compliar desde el work_space
-   'colcon build'
+   `colcon build`
 
 2. Source
-   'source install/setup.bash'
+   `source install/setup.bash`
 
 3. Lanzar
-   'ros2 launch antrop_3DOF display.launch.py'
+   `ros2 launch antrop_3DOF display.launch.py`
