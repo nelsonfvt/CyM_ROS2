@@ -22,6 +22,10 @@ class AntropControl(Node):
         self.J2 = 0.0
         self.J3 = 0.0
 
+        self.J1_sent = 1.0
+        self.J2_sent = 1.0
+        self.J3_sent = 1.0
+
         self.base_trans = TransformStamped()
         self.base_trans.header.frame_id = 'map'
         self.base_trans.child_frame_id = 'base_link'
@@ -31,9 +35,11 @@ class AntropControl(Node):
         self.timer = self.create_timer(self.Ts, self.timer_callback)
 
     def timer_callback(self):
-        self.get_logger().info('Publishing: ')
+
+        self.get_logger().info(f"Publishing J1: {self.J1} J2: {self.J2} J3: {self.J3}")
         now = self.get_clock().now()
 
+        self.joint_state.header.stamp = now.to_msg()
         self.joint_state.name = ['J1', 'J2', 'J3']
         self.joint_state.position = [self.J1, self.J2, self.J3]
 
@@ -41,7 +47,7 @@ class AntropControl(Node):
         self.base_trans.transform.translation.x = 0.0
         self.base_trans.transform.translation.y = 0.0
         self.base_trans.transform.translation.x = 0.0
-        print('aqui voy 1')
+        
 		# Quaternion methods
         quat_tf = [0.0, 0.0, 0.0, 1.0]
         quat = Quaternion(x=quat_tf[0], y=quat_tf[1], z=quat_tf[2], w=quat_tf[3])
@@ -49,9 +55,26 @@ class AntropControl(Node):
         self.base_trans.transform.rotation = quat#Quaternion(x=0.0, y=0.0, z=0.0, w=1.0)
 		
         self.joint_pub.publish(self.joint_state)
-        print('aqui voy 2')
         self.broadcaster.sendTransform(self.base_trans)
-        print('aqui voy 3')
+        
+        # Moviendo articulaciones del robot 3DOF
+        self.J1 += self.J1_sent * 0.1        
+        if self.J1 > pi/2:
+            self.J1_sent = -1.0
+        if self.J1 < -pi/2:
+            self.J1_sent = 1.0
+
+        self.J2 += self.J2_sent * 0.08        
+        if self.J2 > pi/2:
+            self.J2_sent = -1.0
+        if self.J2 < 0.0:
+            self.J2_sent = 1.0
+
+        self.J3 += self.J3_sent * 0.07        
+        if self.J3 > 0.0:
+            self.J3_sent = -1.0
+        if self.J3 < -pi/2:
+            self.J3_sent = 1.0
 
 
 

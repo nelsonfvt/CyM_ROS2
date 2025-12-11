@@ -33,13 +33,23 @@ def generate_launch_description():
         arguments=[urdf]
     )
 
+    # Nodo de control del robot
+    antrop_control_node = Node(
+        package = 'antrop_3DOF',
+        executable = 'antrop_control',
+        name = 'antrop_contol' 
+    )
+
     # Create a node for rviz2
     rviz2_node = Node(
         package='rviz2',
         namespace='',
         executable='rviz2',
         name='rviz2',
-        arguments=['-d', [os.path.join(urdf, 'urdf', 'my_config.rviz')]]
+        arguments=['-d', [os.path.join(os.path.join(
+            get_package_share_directory('antrop_3DOF'),
+            'urdf',
+            'my_config.rviz'), )]]
 
     )
 
@@ -47,8 +57,9 @@ def generate_launch_description():
         launch.actions.DeclareLaunchArgument(name='gui', default_value='True',
                                              description='Flag to enable joint_state_publisher_gui'),
         
-        static_transform_publiser_node,
+        #static_transform_publiser_node,
         robot_state_publisher_node,
+        antrop_control_node,
         rviz2_node,
 
 
