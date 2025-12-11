@@ -35,7 +35,10 @@ def generate_launch_description():
         namespace='',
         executable='rviz2',
         name='rviz2',
-        arguments=['-d', [os.path.join(pkg_path, 'config', 'my_config.rviz')]]
+        arguments=['-d', [os.path.join(
+            get_package_share_directory('mobile_robot'),
+            'config',
+            'my_config.rviz')]]
 
     )
 
