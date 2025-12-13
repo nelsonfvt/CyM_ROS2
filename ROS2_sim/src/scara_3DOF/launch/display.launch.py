@@ -39,6 +39,13 @@ def generate_launch_description():
         condition=launch.conditions.IfCondition(LaunchConfiguration('gui'))
     )
 
+    # Control con nodo
+    scara_control_node = Node(
+        package='scara_3DOF',
+        executable='scara_control',
+        name='scara_control'
+    )
+
     # Create a node for rviz2
     rviz2_node = Node(
         package='rviz2',
@@ -55,8 +62,9 @@ def generate_launch_description():
         launch.actions.DeclareLaunchArgument(name='gui', default_value='True',
                                              description='Flag to enable joint_state_publisher_gui'),
 
-        joint_state_publisher_node,
-        joint_state_publisher_gui_node,
+        #joint_state_publisher_node,
+        #joint_state_publisher_gui_node,
+        scara_control_node,
         robot_state_publisher_node,
         rviz2_node,
     ])
