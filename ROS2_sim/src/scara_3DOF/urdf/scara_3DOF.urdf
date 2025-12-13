@@ -1,0 +1,143 @@
+<?xml version="1.0"?>
+<robot name="simple_robot">
+	
+<!-- Definición de materiales -->
+	
+  <material name="blue">
+    <color rgba="0 0 0.8 1"/>
+  </material>
+
+  <material name="white">
+    <color rgba="1 1 1 1"/>
+  </material>
+  
+  <material name="l_gray">
+    <color rgba="0.5 0.5 0.5 1"/>
+  </material>
+
+<!-- Definición de links y joints -->
+
+<!-- base del robot -->
+  <link name="base_link">
+    <visual>
+      <geometry>
+		<box size="0.25 0.25 1"/>
+      </geometry>
+      <material name="white"/>
+      <origin xyz="0 0 0.5"/>
+    </visual>
+  </link>
+
+<!-- primera articulacion -->
+
+  <joint name="J1" type="continuous">
+    <parent link="base_link"/>
+    <child link="link1_1"/>
+    <origin rpy="0 0 0" xyz="0 0 1.25"/>
+     <axis xyz="0 0 1" />
+  </joint>
+
+<!-- Eslabon 1 -->
+
+  <link name="link1_1">
+    <visual>
+      <geometry>
+        <cylinder length="0.5" radius="0.25"/>
+      </geometry>
+      <material name="blue"/>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </visual>
+  </link>
+
+  <link name="link1_2">
+    <visual>
+      <geometry>
+        <box size="1 0.25 0.25"/>
+      </geometry>
+      <material name="white"/>
+      <origin rpy="0 0 0" xyz="0.5 0 0"/>
+    </visual>
+  </link>
+
+  <joint name="union_l1" type="fixed">
+    <parent link="link1_1"/>
+    <child link="link1_2"/>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <axis xyz="0 0 0"/>
+  </joint>
+
+<!-- Eslabon 2 -->
+
+  <link name="link2_1">
+    <visual>
+      <geometry>
+        <cylinder length="0.5" radius="0.25"/>
+      </geometry>
+      <material name="blue"/>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </visual>
+  </link>
+
+  <link name="link2_2">
+    <visual>
+      <geometry>
+        <box size="1 0.25 0.25"/>
+      </geometry>
+      <material name="white"/>
+      <origin rpy="0 0 0" xyz="0.5 0 0"/>
+    </visual>
+  </link>
+
+  <joint name="union_l2" type="fixed">
+    <parent link="link2_1"/>
+    <child link="link2_2"/>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <axis xyz="0 0 0"/>
+  </joint>
+
+<!-- Articulación 2 -->
+  <joint name="J2" type="continuous">
+    <parent link="link1_2"/>
+    <child link="link2_1"/>
+    <origin rpy="0 0 0" xyz="1.25 0 0"/>
+     <axis xyz="0 0 1" />
+  </joint>
+
+<!-- Eslabon 3 -->
+  <link name="link3_1">
+    <visual>
+      <geometry>
+        <box size="0.5 0.5 0.5"/>
+      </geometry>
+      <material name="blue"/>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </visual>
+  </link>
+
+  <joint name="union_l3" type="fixed">
+    <parent link="link2_2"/>
+    <child link="link3_1"/>
+    <origin rpy="3.141592 0 0" xyz="1 0 0"/>
+    <axis xyz="0 0 0"/>
+  </joint>
+
+  <link name="link3_2">
+    <visual>
+      <geometry>
+        <box size="0.25 0.25 1"/>
+      </geometry>
+      <material name="white"/>
+      <origin rpy="0 0 0" xyz="0 0 -0.5"/>
+    </visual>
+  </link>
+
+<!-- Articulacion 3 -->
+
+  <joint name="J3" type="continuous">
+    <parent link="link3_1"/>
+    <child link="link3_2"/>
+    <origin rpy="0 0 0" xyz="0 0 1"/>
+    <axis xyz="0 0 1"/>
+  </joint>
+
+</robot>
