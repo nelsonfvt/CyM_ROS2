@@ -73,7 +73,7 @@ class ScaraControl(Node):
         self.J3 += self.J3_sent * 0.07        
         if self.J3 > 0.0:
             self.J3_sent = -1.0
-        if self.J3 < -pi/2:
+        if self.J3 < -0.5:
             self.J3_sent = 1.0
 
 
