@@ -106,10 +106,20 @@ def generate_launch_description():
         launch_arguments=dict(use_sim_time=use_sim_time).items(),
     )
 
+    gz_bridge_conf_path = os.path.join(
+        get_package_share_directory('robot_6dof_pkg'),
+        'config',
+        'gz_bridge.yaml'
+    )
+	
+	
     gz_bridge_parameter = Node(
         package='ros_gz_bridge',
         executable='parameter_bridge',
-        arguments=['/clock@rosgraph_msgs/msg/Clock[ignition.msgs.Clock'],
+        arguments=['/clock@rosgraph_msgs/msg/Clock[ignition.msgs.Clock'
+			'--ros-args', '-p',
+			f'config_file:={gz_bridge_conf_path}'
+		],
         output='screen',
         parameters=[{
             'use_sim_time': use_sim_time,

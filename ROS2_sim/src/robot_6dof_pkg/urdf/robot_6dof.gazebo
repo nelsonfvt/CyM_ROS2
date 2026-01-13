@@ -1,0 +1,17 @@
+<robot>
+
+	<gazebo>
+		<plugin
+			filename="gz-sim-joint-state-publisher-system"
+			name="gz::sim::systems::JointStatePublisher">
+			<topic>joint_states</topic>
+			<joint_name> Base__to__link_1 </joint_name>
+			<joint_name> link_1__to__link_2 </joint_name>
+			<joint_name> link_2__to__link_3 </joint_name>
+			<joint_name> link_3__to__link_4 </joint_name>
+			<joint_name> link_4__to__link_5 </joint_name>
+			<joint_name> link_5__to__link_6 </joint_name>
+		</plugin>
+	</gazebo>
+
+</robot>
