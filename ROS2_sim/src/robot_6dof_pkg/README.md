@@ -10,3 +10,6 @@ https://mikelikesrobots.github.io/blog/6dof-arm-ros2-control/
 
 https://automaticaddison.com/how-to-simulate-a-robotic-arm-in-gazebo-ros-2-jazzy/#Create_a_YAML_Configuration_File_for_the_Controller_Manager
 
+#MOGI-ROS_Week-9-10-Simple-arm
+
+https://github.com/MOGI-ROS/Week-9-10-Simple-arm
