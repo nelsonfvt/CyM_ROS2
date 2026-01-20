@@ -116,7 +116,7 @@ def generate_launch_description():
     gz_bridge_parameter = Node(
         package='ros_gz_bridge',
         executable='parameter_bridge',
-        arguments=['/clock@rosgraph_msgs/msg/Clock[ignition.msgs.Clock'
+        arguments=[#'/clock@rosgraph_msgs/msg/Clock[ignition.msgs.Clock'
 			'--ros-args', '-p',
 			f'config_file:={gz_bridge_conf_path}'
 		],
@@ -134,6 +134,29 @@ def generate_launch_description():
     )
     gz_bridge_camera_dummy = DeclareLaunchArgument('', default_value='') # dummy for LaunchDescription could take empty element
 
+    #Robot controllers and ros2_control
+    robot_controllers = PathJoinSubstitution(
+        [
+            get_package_share_directory('robot_6dof_pkg'),
+            'config',
+            'ros_controllers.yaml',
+        ]
+    )
+
+    joint_trajectory_controller_spawner = Node(
+        package='controller_manager',
+        executable='spawner',
+        arguments=[
+            'arm_controller',
+            '--param-file',
+            robot_controllers,
+            ],
+        parameters=[{
+            'use_sim_time': use_sim_time,
+        }]
+    )
+
+
     return LaunchDescription([
         use_sim_time_launch_arg,
         use_rviz_arg,
@@ -144,5 +167,6 @@ def generate_launch_description():
         gazebo,
         spawn,
         gz_bridge_parameter,
+        joint_trajectory_controller_spawner,
         (gz_bridge_camera if [] else gz_bridge_camera_dummy)
     ])

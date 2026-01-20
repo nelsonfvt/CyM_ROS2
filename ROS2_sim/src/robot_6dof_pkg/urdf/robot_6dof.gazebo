@@ -14,4 +14,12 @@
 		</plugin>
 	</gazebo>
 
+	<gazebo>
+		<plugin filename="gz_ros2_control-system" name="gz_ros2_control::GazeboSimROS2ControlPlugin">
+			<parameters>
+				$(find robot_6dof_pkg)/config/ros_controllers.yaml
+			</parameters>
+		</plugin>
+	</gazebo>
+
 </robot>
