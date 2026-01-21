@@ -46,7 +46,7 @@ class AntropControl(Node):
         self.base_trans.header.stamp = now.to_msg()
         self.base_trans.transform.translation.x = 0.0
         self.base_trans.transform.translation.y = 0.0
-        self.base_trans.transform.translation.x = 0.0
+        self.base_trans.transform.translation.z = 0.0
         
 		# Quaternion methods
         quat_tf = [0.0, 0.0, 0.0, 1.0]
