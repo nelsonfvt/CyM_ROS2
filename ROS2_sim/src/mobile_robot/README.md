@@ -6,11 +6,13 @@ Ejemplo de un robot móvil diferencial sencillo.
 
 `colcon build --packages-select mobile_robot`
 
+`source install/setup.bash`
+
 ## Lanzando simulación
 
 En una terminal dentro del workspace ejecute:
 
-`ro2 launch mobile_robot view.launch.py`
+`ros2 launch mobile_robot view.launch.py`
 
 En otra terminal ejecute:
 
