@@ -2,13 +2,13 @@
 
 Este ejemplo mueve un robot creado como modelo sencillo en urdf.
 
-El robot tiene movimiento automatico sin intervencion del usuario
+El robot tiene movimiento automático sin intervencion del usuario
 
 ### Ejecución:
 
-1. Compliar desde el work_space
+1. Compliar desde el directorio ROS2_sim
 
-   `colcon build`
+   `colcon build --packages-select antrop_3DOF`
 
 2. Source
 
