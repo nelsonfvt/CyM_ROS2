@@ -5,6 +5,7 @@ En este ejemplo se tiene un modelo sencillo con un manipulador antropomórfico c
 Para compilar el ejemplo en una terminal ubidaca en el directorio ROS2_sim ejecute:
 
 `colcon build --packages-select robot_6dof_pkg`
+
 `source install/setup.bash`
 
 Para ejecutar la simulación:
