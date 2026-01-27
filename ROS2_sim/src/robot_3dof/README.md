@@ -1,6 +1,6 @@
 # Robot_3dof
 
-Este ejemplo lleva un modelo realizado en FREECAD para ser visualizado en Rviz.
+Este ejemplo toma un modelo realizado en FreeCAD. El urdf se obtuvo mediante el workbench RobotCAD para ser visualizado en Rviz.
 
 Una vez que compile y ejecute el ejemplo el brazo robot tendra movimiento automático.
 
