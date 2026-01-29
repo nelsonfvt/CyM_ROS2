@@ -176,3 +176,6 @@ cython_debug/
 ROS2_sim/build/
 ROS2_sim/install/
 ROS2_sim/log/
+ROS2_basics/build/
+ROS2_basics/install/
+ROS2_basics/log/
