@@ -25,7 +25,7 @@ setup(
     entry_points={
         'console_scripts': [
             'area_cliente = area_triangulo_pkg.area_cliente:main',
-            'area_server = area_triangulo.area_server:main',
+            'area_server = area_triangulo_pkg.area_server:main',
         ],
     },
 )
