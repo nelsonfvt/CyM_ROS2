@@ -3,7 +3,9 @@
 Los ejemplos de este repositorio se han implementado usando:
 
 -Xubuntu 24.04 LTS
+
 -ROS2 Jazzy Jalisco
+
 -Gazebo Harmonic
 
 ## ROS2_sim
