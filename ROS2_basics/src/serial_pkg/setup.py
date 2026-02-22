@@ -26,6 +26,7 @@ setup(
         'console_scripts': [
             'serial_receive = serial_pkg.serial_receive:main',
             'serial_publish = serial_pkg.serial_publish:main',
+            'serial_client = serial_pkg.serial_client:main',
         ],
     },
 )

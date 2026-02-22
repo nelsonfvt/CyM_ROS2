@@ -17,6 +17,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/Mypoint3d.msg"
   "msg/Myimudata.msg"
   "srv/TriangArea.srv"
+  "srv/Imuserv.srv"
 )
 
 if(BUILD_TESTING)
