@@ -1,0 +1,34 @@
+services:
+  ros2_basics: &ros2_basics
+    container_name: ros2_basics
+    image: ros2_tutorial:latest
+    ipc: host
+    network_mode: host
+    privileged: true
+    devices:
+      - "/dev/ttyUSB0:/dev/ttyUSB0"
+    environment:
+      - DISPLAY
+      - XAUTHORITY=/tmp/.Xauthority
+    volumes:
+      - $HOME/Data_Files/Repos/CyM_ROS2/ROS2_basics:/root/ros2_ws/ROS2_basics
+      - $HOME/Data_Files/Repos/CyM_ROS2/shared/ros2:/root/shared/ros2
+      - $HOME/.Xauthority:/tmp/.Xauthority
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+    command: ["tail", "-f", "/dev/null"]
+
+  ros2_sim: &ros2_sim
+    container_name: ros2_sim
+    image: ros2_tutorial:latest
+    ipc: host
+    network_mode: host
+    privileged: true
+    environment:
+      - DISPLAY
+      - XAUTHORITY=/tmp/.Xauthority
+    volumes:
+      - $HOME/Data_Files/Repos/CyM_ROS2/ROS2_sim:/root/ros2_ws/ROS2_sim
+      - $HOME/Data_Files/Repos/CyM_ROS2/shared/ros2:/root/shared/ros2
+      - $HOME/.Xauthority:/tmp/.Xauthority
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+    command: ["tail", "-f", "/dev/null"]

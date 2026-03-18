@@ -12,7 +12,7 @@ PARENT_PATH=$(dirname "$SCRIPT_PATH")
 build_docker_image()
 {
     # Set a log message for the build process
-    LOG="Building Docker image ros2_basics:latest ..."
+    LOG="Building Docker image ros2_tutorial:latest ..."
  
     # Print the log message using our debug function
     print_debug
@@ -22,7 +22,7 @@ build_docker_image()
     # -t manipulation:latest: Tag the image as manipulation:latest
     # $PARENT_PATH: Use the parent directory as the build context, allowing access to all package files
     # --no-cache: Build the image without using the cache, ensuring fresh dependencies
-    sudo docker image build -f $SCRIPT_PATH/Dockerfile -t ros2_basics:latest $PARENT_PATH --no-cache
+    sudo docker image build -f $SCRIPT_PATH/Dockerfile -t ros2_tutorial:latest $PARENT_PATH --no-cache
 }
 
 # shared folder???
@@ -31,16 +31,16 @@ build_docker_image()
 create_shared_folder()
 {
     # Check if the directory doesn't exist
-    if [ ! -d "$HOME/Data_Files/Repos/CyM_ROS2/shared/ros2" ]; then
+    if [ ! -d "$PARENT_PATH/shared/ros2" ]; then
         # Set a log message for folder creation
-        LOG="Creating $HOME/Data_Files/Repos/CyM_ROS2/shared/ros2 ..."
+        LOG="Creating $PARENT_PATH/shared/ros2 ..."
  
         # Print the log message
         print_debug
  
         # Create the directory and its parent directories if they don't exist
         # -p flag creates parent directories as needed
-        mkdir -p $HOME/Data_Files/Repos/CyM_ROS2/shared/ros2
+        mkdir -p $PARENT_PATH/shared/ros2
     fi
 }
 

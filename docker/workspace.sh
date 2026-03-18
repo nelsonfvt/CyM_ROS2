@@ -7,7 +7,7 @@ ROS_DISTRO="jazzy"
 # Source ROS 2 setup
 source /opt/ros/$ROS_DISTRO/setup.bash
 
-# Navigate to sim tutorial
+# Navigate to tutorial
 cd /root/ros2_ws
 
 # Install ROS2 dependencies for all packages

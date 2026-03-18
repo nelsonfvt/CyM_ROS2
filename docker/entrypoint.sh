@@ -13,6 +13,8 @@ chmod 700 $XDG_RUNTIME_DIR
 # Set base paths for convenience
 # ROS_WS is the path to the ROS 2 workspace
 ROS_WS="/root/ros2_ws"
+ROS_SIM="$ROS_WS/ROS2_sim"
+ROS_BASICS="$ROS_WS/ROS2_basics"
 
 # SHARED_ROS2 is the path to shared ROS 2 files
 SHARED_ROS2="/root/shared/ros2"
@@ -45,23 +47,39 @@ export ROS_DOMAIN_ID=$(cat "$ROS_DOMAIN_ID_FILE")
 # This sets up the ROS 2 environment for the current shell session
 source /opt/ros/$ROS_DISTRO/setup.bash
 
-# Source the local workspace setup
-source $ROS_WS/install/setup.bash
-
 # Source the .bashrc file to ensure all environment variables are up to date
 source /root/.bashrc
 
-# Change to the ROS 2 workspace directory
-cd $ROS_WS
+# Change to the ROS2_basics workspace directory
+cd $ROS_BASICS
+
+# installing dependencies
+echo "Installing dependencies..."
+rosdep install -i --from-path src --rosdistro $ROS_DISTRO -y
 
 # Build the ROS 2 workspace using colcon
+echo "Building packages "
 colcon build
 
-# Change back to the root directory
-#cd
+# Source the local workspace setup
+#source $ROS_BASICS/install/setup.bash
+
+# Change to the ROS2_sim workspace directory
+cd $ROS_SIM
+
+# installing dependencies
+echo "Installing dependencies..."
+rosdep install -i --from-path src --rosdistro $ROS_DISTRO -y
+
+# Build the ROS 2 workspace using colcon
+echo "Building packages "
+colcon build
+
+# Source the local workspace setup
+#source $ROS_SIM/install/setup.bash
 
 # Source .bashrc again to ensure any changes made during the build are applied
-source /root/.bashrc
+# source /root/.bashrc
 
 # Any command you run after this script runs in the environment set up by the script.
 exec "$@"

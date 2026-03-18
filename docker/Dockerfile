@@ -19,7 +19,8 @@ SHELL ["/bin/bash", "-c"]
 # This step upgrades all packages and installs utilities needed for development
 RUN apt-get update -q && \
     apt-get upgrade -yq && \
-    apt-get install -yq --no-install-recommends apt-utils wget curl git build-essential \
+    apt-get install -yq apt-utils && \
+    apt-get install -yq --no-install-recommends wget curl git build-essential \
     vim sudo lsb-release locales bash-completion tzdata gosu gedit htop nano libserial-dev
  
 # Install additional tools required for ROS 2 development
@@ -44,6 +45,13 @@ RUN apt-get update && \
     ros-${ROS_DISTRO}-demo-nodes-py \
     ros-${ROS_DISTRO}-rviz2 \
     ros-${ROS_DISTRO}-rqt-reconfigure
+
+# Install ros2_controller and additional packages
+RUN apt-get install -y \
+    ros-${ROS_DISTRO}-controller-manager \
+    ros-${ROS_DISTRO}-gz-ros2-control \
+    ros-${ROS_DISTRO}-joint-trajectory-controller \
+    ros-${ROS_DISTRO}-rqt-joint-trajectory-controller
  
 # Install Mesa graphics drivers
 # Mesa is an open-source implementation of OpenGL and other graphics APIs
@@ -54,7 +62,8 @@ RUN apt-get update && \
 
 # Create necessary directories
 RUN mkdir -p /etc/udev/rules.d && \
-    mkdir -p /root/ros2_ws
+    mkdir -p /root/ros2_ws/ROS2_basics && \
+    mkdir -p /root/ros2_ws/ROS2_sim
 
 # Copy configuration files from docker directory
 # Note the docker/ prefix since we're in the parent context
