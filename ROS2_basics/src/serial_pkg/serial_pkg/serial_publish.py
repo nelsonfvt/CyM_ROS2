@@ -38,26 +38,22 @@ class SerialPublisher(Node):
         while rclpy.ok():
 
             # Leer datos de la comunicación serial
-            band = self.serial_connection.read() # leer un byte
+            band = self.serial_connection.read(2) # leer 2 byte
+            sband = band.decode('utf-8', errors='replace')
             
-            if band[0] == 97: # llego 'a'
+            if (sband == "aa"): # llego 'aa'
                 msg = Myimudata() # crea tipo de mensaje
 
                 with self.lock:
 
-                    buff = self.serial_connection.read(4)
-                    self.sens_arr[0] = struct.unpack('f', buff[0:4])[0] # bytes a float
-                    buff = self.serial_connection.read(4)
-                    self.sens_arr[1] = struct.unpack('f', buff[0:4])[0] # bytes a float
-                    buff = self.serial_connection.read(4)
-                    self.sens_arr[2] = struct.unpack('f', buff[0:4])[0] # bytes a float
-
-                    buff = self.serial_connection.read(4)
-                    self.sens_arr[3] = struct.unpack('f', buff[0:4])[0] # bytes a float
-                    buff = self.serial_connection.read(4)
-                    self.sens_arr[4] = struct.unpack('f', buff[0:4])[0] # bytes a float
-                    buff = self.serial_connection.read(4)
-                    self.sens_arr[5] = struct.unpack('f', buff[0:4])[0] # bytes a float
+                    buff = self.serial_connection.read(25)
+                    # bytes a float
+                    self.sens_arr[0] = struct.unpack('f',buff[0:4])[0]
+                    self.sens_arr[1] = struct.unpack('f',buff[4:8])[0]
+                    self.sens_arr[2] = struct.unpack('f',buff[8:12])[0]
+                    self.sens_arr[3] = struct.unpack('f',buff[12:16])[0]
+                    self.sens_arr[4] = struct.unpack('f',buff[16:20])[0]
+                    self.sens_arr[5] = struct.unpack('f',buff[20:24])[0]
 
                     msg.ax = self.sens_arr[0]
                     msg.ay = self.sens_arr[1]
@@ -67,7 +63,9 @@ class SerialPublisher(Node):
                     msg.gz = self.sens_arr[5]
 
                 self.publisher.publish(msg)
-                self.get_logger().info('Publicando sensores IMU 6dof')
+                self.get_logger().info('Publicando IMU 6dof')
+            else:
+                print("perdida de datos")
 
     def imu_data_callback(self, request, response):
         if -1 < request.canal < 6:
@@ -80,6 +78,7 @@ class SerialPublisher(Node):
 
     def destroy_node(self):
         # Cerrar la conexión serial antes de destruir el nodo
+        #self.read_thread._delete
         self.serial_connection.close()
         super().destroy_node()
 

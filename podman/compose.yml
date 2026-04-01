@@ -5,18 +5,22 @@ services:
     ipc: host
     network_mode: host
     privileged: true
+    group-add:
+      - keep-groups
+    security_opt:
+      - "label=disable"
     devices:
-      - "/dev/ttyUSB0:/dev/ttyUSB0"
+      - /dev/ttyACM0:/dev/ttyUSB0:rw
     environment:
       - DISPLAY
       - XAUTHORITY=/tmp/.Xauthority
     volumes:
-      - ../ROS2_basics:/root/ros2_ws/ROS2_basics
+      - ../ROS2_basics:/root/ros2_ws/ROS2_basics:rw
       - ../shared/ros2:/root/shared/ros2
       - $HOME/.Xauthority:/tmp/.Xauthority
       - /tmp/.X11-unix:/tmp/.X11-unix:rw
     command: ["tail", "-f", "/dev/null"]
-
+    
   ros2_sim: &ros2_sim
     container_name: ros2_sim
     image: ros2_tutorial:latest
@@ -27,8 +31,9 @@ services:
       - DISPLAY
       - XAUTHORITY=/tmp/.Xauthority
     volumes:
-      - ../ROS2_sim:/root/ros2_ws/ROS2_sim
+      - ../ROS2_sim:/root/ros2_ws/ROS2_sim:rw
       - ../shared/ros2:/root/shared/ros2
       - $HOME/.Xauthority:/tmp/.Xauthority
       - /tmp/.X11-unix:/tmp/.X11-unix:rw
     command: ["tail", "-f", "/dev/null"]
+    

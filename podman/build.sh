@@ -9,7 +9,7 @@ PARENT_PATH=$(dirname "$SCRIPT_PATH")
  
 # Function to build the Docker image
 # This function handles the actual Docker build process
-build_docker_image()
+build_ros2_image()
 {
     # Set a log message for the build process
     LOG="Building Docker image ros2_tutorial:latest ..."
@@ -22,7 +22,7 @@ build_docker_image()
     # -t manipulation:latest: Tag the image as manipulation:latest
     # $PARENT_PATH: Use the parent directory as the build context, allowing access to all package files
     # --no-cache: Build the image without using the cache, ensuring fresh dependencies
-    sudo docker image build -f $SCRIPT_PATH/Dockerfile -t ros2_tutorial:latest $PARENT_PATH --no-cache
+    podman image build -f $SCRIPT_PATH/Dockerfile -t ros2_tutorial:latest $PARENT_PATH --no-cache
 }
 
 # shared folder???
@@ -59,4 +59,4 @@ print_debug()
 }
 
 # Then, build the Docker image
-build_docker_image
+build_ros2_image

@@ -62,7 +62,7 @@ echo "Building packages "
 colcon build
 
 # Source the local workspace setup
-#source $ROS_BASICS/install/setup.bash
+source $ROS_BASICS/install/setup.bash
 
 # Change to the ROS2_sim workspace directory
 cd $ROS_SIM
@@ -76,7 +76,7 @@ echo "Building packages "
 colcon build
 
 # Source the local workspace setup
-#source $ROS_SIM/install/setup.bash
+source $ROS_SIM/install/setup.bash
 
 # Source .bashrc again to ensure any changes made during the build are applied
 # source /root/.bashrc
