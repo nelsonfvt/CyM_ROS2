@@ -1,0 +1,75 @@
+<?xml version="1.0" ?>
+
+<robot name="minisumo">
+
+  <!-- <link name="map"/>
+
+  <joint name="base_joint" type="continuous">
+    <parent link="map"/>
+    <child link="chasis"/>
+  </joint> -->
+
+<!-- Definición de materiales -->
+	
+  <material name="blue">
+    <color rgba="0 0 0.8 1"/>
+  </material>
+
+  <material name="white">
+    <color rgba="1 1 1 1"/>
+  </material>
+  
+  <material name="l_gray">
+    <color rgba="0.5 0.5 0.5 1"/>
+  </material>
+
+    <link name="chasis">
+        <visual>
+            
+            <geometry>
+                <mesh filename="package://rviz_ex/meshes/chasis_robot.stl" scale="0.01 0.01 0.01"/>
+                <!-- <box size="0.25 0.25 1"/> -->
+            </geometry>
+            <material name="blue"/>
+            <origin rpy="0 0 1.5707963268" xyz="0.275 0 0.05"/>
+
+        </visual>
+    </link>
+
+    <link name="rueda_d">
+      <visual>
+        <geometry>
+          <mesh filename="package://rviz_ex/meshes/rueda.stl" scale="0.01 0.01 0.01"/>
+          <!-- <cylinder length="20" radius="15" /> -->
+        </geometry>
+        <material name="l_gray"/>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+      </visual>
+    </link>
+
+    <joint name="eje_d" type="continuous">
+      <parent link="chasis"/>
+      <child link="rueda_d"/>
+      <origin rpy="0 0 0" xyz="0 -0.29 0.16"/>
+      <axis xyz="0 1 0"/>
+    </joint>
+
+    <link name="rueda_i">
+      <visual>
+        <geometry>
+          <mesh filename="package://rviz_ex/meshes/rueda.stl" scale="0.01 0.01 0.01"/>
+          <!-- <cylinder length="20" radius="15" /> -->
+        </geometry>
+        <material name="l_gray"/>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+      </visual>
+    </link>
+
+    <joint name="eje_i" type="continuous">
+      <parent link="chasis"/>
+      <child link="rueda_i"/>
+      <origin rpy="0 0 3.14159265359" xyz="0 0.29 0.16"/>
+      <axis xyz="0 1 0"/>
+    </joint>
+
+</robot>
