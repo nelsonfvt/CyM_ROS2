@@ -180,7 +180,7 @@ ROS2_basics/build/
 ROS2_basics/install/
 ROS2_basics/log/
 
-# Docker
+# Contenedores
 docker/
-# Podman
 podman/
+shared/
