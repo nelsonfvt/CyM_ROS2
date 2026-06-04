@@ -2,7 +2,7 @@
 ARG ROS_DISTRO=jazzy
 
 # ros2-desktop-full
-FROM osrf/ros:${ROS_DISTRO}-desktop-full
+FROM docker.io/osrf/ros:${ROS_DISTRO}-desktop-full
 
 # Set the maintainer information for this Dockerfile
 LABEL maintainer="nelsonfvt<nelsonfvt@gmail.com>"
