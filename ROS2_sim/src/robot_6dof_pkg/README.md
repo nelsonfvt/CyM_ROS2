@@ -1,6 +1,14 @@
 # Robot_6dof_pkg
 
-En este ejemplo se tiene un modelo sencillo con un manipulador antropomórfico con muñeca esférica.
+En este ejemplo se tiene un modelo sencillo con un manipulador antropomórfico con muñeca esférica. Previamente debe tener instalados los siguientes paquetes:
+
+`ros-jazzy-controller-manager`
+
+`ros-jazzy-gz-ros2-control`
+
+`ros-jazzy-joint-trajectory-controller`
+
+`ros-jazzy-rqt-joint-trajectory-controller`
 
 Para compilar el ejemplo en una terminal ubidaca en el directorio ROS2_sim ejecute:
 
