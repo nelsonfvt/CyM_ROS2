@@ -1,4 +1,4 @@
-# Robot_6dof_pkg
+# Rviz - ejemplo con robot sumo
 
 En este ejemplo se tiene un modelo sencillo de un robot mobil tipo minisumo. Previamente debe tener instalados los siguientes paquetes:
 
