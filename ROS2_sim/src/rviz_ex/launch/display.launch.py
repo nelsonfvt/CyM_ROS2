@@ -11,6 +11,7 @@ def generate_launch_description():
     # Procesando archivo urdf
     pkg_path = os.path.join(get_package_share_directory('rviz_ex'))
     urdf_file = os.path.join(pkg_path, 'urdf/robot.urdf')
+    rviz_config_file = os.path.join(pkg_path, 'urdf/rviz.conf.rviz')
 
     with open(urdf_file, 'r') as infp:
         robot_desc = infp.read()
@@ -64,9 +65,9 @@ def generate_launch_description():
             description='Use simulation time if true'
         ),
         
-        #joint_state_publisher_node,
-        #joint_state_publisher_gui_node,
-        minisumo_controller,
+        joint_state_publisher_node,
+        joint_state_publisher_gui_node,
+        #minisumo_controller,
         robot_state_publisher_node,
         rviz_node
     ])
