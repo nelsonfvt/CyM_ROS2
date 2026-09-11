@@ -2,6 +2,8 @@
 
 En este ejemplo se tiene un modelo sencillo con un manipulador antropomórfico con muñeca esférica. Previamente debe tener instalados los siguientes paquetes:
 
+`ros-jazzy-ros-gz`
+
 `ros-jazzy-controller-manager`
 
 `ros-jazzy-gz-ros2-control`
