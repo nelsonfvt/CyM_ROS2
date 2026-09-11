@@ -8,7 +8,7 @@ En este ejemplo se tiene un modelo sencillo de un robot mobil tipo minisumo. Pre
 
 Para compilar el ejemplo en una terminal ubidaca en el directorio ROS2_sim ejecute:
 
-`colcon build --packages-select rvix_ex`
+`colcon build --packages-select rviz_ex`
 
 `source install/setup.bash`
 
